@@ -2,78 +2,126 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Cinemachine;
+using System.IO;
+using TMPro;
 
-public class DataManager : MonoBehaviour
+namespace Database
 {
-    public TextAsset data;
-    private AllData datas;
-
-    public GameObject player;
-
-    public void Awake()
+    public class DataManager : MonoBehaviour
     {
-        datas = JsonUtility.FromJson<AllData>(data.text);
-        Debug.Log("Current Scene Index: " + SceneManager.GetActiveScene().buildIndex);
-    }
+        private AllData datas;
+        public static DataManager instance;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        [SerializeField] TextAsset data;
+        [SerializeField] GameObject playerPrefab;
+        [SerializeField] TextMeshProUGUI stageText;
 
-        StageData currentStage = null;
-        foreach (var stage in datas.stage)
+        private CinemachineVirtualCamera cinemachineCam;
+        string path;
+        string filename = "Save";
+        int currentSceneIndex;
+        
+        public void Awake()
         {
-            if (stage.stageID == currentSceneIndex)
+            if (instance == null)
             {
-                currentStage = stage;
-                break;
+                instance = this;
+                DontDestroyOnLoad(gameObject);
             }
+            else if (instance != this)
+            {
+                Destroy(gameObject);
+                return;
+            }
+            path = Application.persistentDataPath + '/';
+            datas = JsonUtility.FromJson<AllData>(data.text);
+
+            Debug.Log("Current Scene Index: " + SceneManager.GetActiveScene().buildIndex);
+            UpdatePlayerStartPosition();
         }
 
-        if (currentStage != null)
+        void OnEnable()
         {
-            // Set player's start position for the stage
-            Vector2 startPosition = new Vector2(currentStage.x, currentStage.y);
-            var playerInstance = Instantiate(player);
-            playerInstance.transform.position = new Vector3(startPosition.x, startPosition.y, 0);
+            SceneManager.sceneLoaded += OnSceneLoaded;
+        }
 
-            CinemachineVirtualCamera cinemachineCam = FindObjectOfType<CinemachineVirtualCamera>();
-            if (cinemachineCam != null)
+        void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+        {
+            UpdatePlayerStartPosition();
+        }
+        
+        void UpdatePlayerStartPosition()
+        {
+            currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+            StageData currentStage = null;
+            foreach (var stage in datas.stage)
             {
-                cinemachineCam.Follow = playerInstance.transform;
+                if (stage.stageID == currentSceneIndex)
+                {
+                    currentStage = stage;
+                    break;
+                }
+            }
+
+            if (currentStage != null)
+            {
+                GameObject playerInstance = Instantiate(playerPrefab);
+                Vector2 startPosition = new Vector2(currentStage.x, currentStage.y);
+                playerInstance.transform.position = new Vector3(startPosition.x, startPosition.y, 0);
+                cinemachineCam = FindObjectOfType<CinemachineVirtualCamera>();
+                if (cinemachineCam != null)
+                {
+                    cinemachineCam.Follow = playerInstance.transform;
+                }
+                else
+                {
+                    Debug.LogError("CinemachineVirtualCamera not found in the scene.");
+                }
             }
             else
             {
-                Debug.LogError("CinemachineVirtualCamera not found in the scene.");
+                Debug.LogError("Stage data not found for stage ID: " + currentSceneIndex);
             }
         }
-        else
+       
+        public void SaveData()
         {
-            Debug.LogError("Stage data not found for stage ID: " + currentSceneIndex);
+            datas.stage[0].CurrenStage = currentSceneIndex;
+            stageText.text = "Stage " + datas.stage[0].CurrenStage;
+            string data = JsonUtility.ToJson(datas);
+            File.WriteAllText(path + filename, data);
+        }
+
+        public void LoadData()
+        {
+            string data = File.ReadAllText(path + filename);
+            datas = JsonUtility.FromJson<AllData>(data);
+        }
+
+        public void LoadScene()
+        {
+            SceneManager.LoadScene(datas.stage[0].CurrenStage);
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    [Serializable]
+    public class AllData
     {
-
+        public StageData[] stage;
     }
-}
 
-[Serializable]
-public class AllData
-{
-    public StageData[] stage;
-}
+    [Serializable]
+    public class StageData
+    {
+        public int stageID;
+        public string stageName;
+        public int x;
+        public int y;
+        public int CurrenStage;
+    }
 
-[Serializable]
-public class StageData
-{
-    public int stageID;
-    public string stageName;
-    public int x;
-    public int y;
 }
