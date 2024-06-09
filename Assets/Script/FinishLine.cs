@@ -8,7 +8,6 @@ public class FinishLine : MonoBehaviour
     [SerializeField] float loadDelay = 1.5f;
     [SerializeField] ParticleSystem finishnEffect;
 
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")

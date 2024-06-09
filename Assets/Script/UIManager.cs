@@ -16,7 +16,6 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
-
         db = DataManager.instance;
     }
     public void OnNewGameStart()

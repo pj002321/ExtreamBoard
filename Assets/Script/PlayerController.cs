@@ -14,11 +14,14 @@ namespace Player
 
         private Rigidbody2D rb;
         SurfaceEffector2D surfaceEffector2D;
+
         bool canMove = true;
 
+       
         // Start is called before the first frame update
         void Start()
         {
+           
             rb = GetComponent<Rigidbody2D>();
             surfaceEffector2D = FindObjectOfType<SurfaceEffector2D>();
         }

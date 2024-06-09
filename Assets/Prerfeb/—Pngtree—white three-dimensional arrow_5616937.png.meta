@@ -1,0 +1,291 @@
+fileFormatVersion: 2
+guid: 1141f0f3ce8c7d3408b4a466c7a5e8d6
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: "\u2014Pngtree\u2014white three-dimensional arrow_5616937_2"
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 1020
+        width: 774
+        height: 549
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57feee025f5ea694d83600ecee5344d1
+      internalID: 642257803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u2014Pngtree\u2014white three-dimensional arrow_5616937_7"
+      rect:
+        serializedVersion: 2
+        x: 1142
+        y: 912
+        width: 623
+        height: 613
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1770305945f645a4695ae8b8fa22ad56
+      internalID: -454314168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u2014Pngtree\u2014white three-dimensional arrow_5616937_19"
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 139
+        width: 781
+        height: 791
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 021b2f6ea1e8faf48b53c41b5c41d1eb
+      internalID: 1633894023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u2014Pngtree\u2014white three-dimensional arrow_5616937_25"
+      rect:
+        serializedVersion: 2
+        x: 1133
+        y: 189
+        width: 628
+        height: 582
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6618167798450b74f8aa8b5dc57d61d9
+      internalID: 182276536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u2014Pngtree\u2014white three-dimensional arrow_5616937_31"
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 508
+        width: 6
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91fc1df13ae051b438c6733bc4109d04
+      internalID: -630424571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      "\u2014Pngtree\u2014white three-dimensional arrow_5616937_0": -1670109201
+      "\u2014Pngtree\u2014white three-dimensional arrow_5616937_1": 991191991
+      "\u2014Pngtree\u2014white three-dimensional arrow_5616937_10": 1587259702
+      "\u2014Pngtree\u2014white three-dimensional arrow_5616937_11": 116694798
+      "\u2014Pngtree\u2014white three-dimensional arrow_5616937_12": 91363495
+      "\u2014Pngtree\u2014white three-dimensional arrow_5616937_13": 1077995720
+      "\u2014Pngtree\u2014white three-dimensional arrow_5616937_14": -721944071
+      "\u2014Pngtree\u2014white three-dimensional arrow_5616937_15": 377271214
+      "\u2014Pngtree\u2014white three-dimensional arrow_5616937_16": 1863997316
+      "\u2014Pngtree\u2014white three-dimensional arrow_5616937_17": 1397727645
+      "\u2014Pngtree\u2014white three-dimensional arrow_5616937_18": -1579261989
+      "\u2014Pngtree\u2014white three-dimensional arrow_5616937_19": 1633894023
+      "\u2014Pngtree\u2014white three-dimensional arrow_5616937_2": 642257803
+      "\u2014Pngtree\u2014white three-dimensional arrow_5616937_20": -550697966
+      "\u2014Pngtree\u2014white three-dimensional arrow_5616937_21": 452396918
+      "\u2014Pngtree\u2014white three-dimensional arrow_5616937_22": 256676914
+      "\u2014Pngtree\u2014white three-dimensional arrow_5616937_23": -886662778
+      "\u2014Pngtree\u2014white three-dimensional arrow_5616937_24": -779548149
+      "\u2014Pngtree\u2014white three-dimensional arrow_5616937_25": 182276536
+      "\u2014Pngtree\u2014white three-dimensional arrow_5616937_26": -1784425892
+      "\u2014Pngtree\u2014white three-dimensional arrow_5616937_27": -366594715
+      "\u2014Pngtree\u2014white three-dimensional arrow_5616937_28": 1107075181
+      "\u2014Pngtree\u2014white three-dimensional arrow_5616937_29": 791643270
+      "\u2014Pngtree\u2014white three-dimensional arrow_5616937_3": -158585714
+      "\u2014Pngtree\u2014white three-dimensional arrow_5616937_30": -1914132085
+      "\u2014Pngtree\u2014white three-dimensional arrow_5616937_31": -630424571
+      "\u2014Pngtree\u2014white three-dimensional arrow_5616937_32": 121090296
+      "\u2014Pngtree\u2014white three-dimensional arrow_5616937_33": 1630538269
+      "\u2014Pngtree\u2014white three-dimensional arrow_5616937_34": -1780142427
+      "\u2014Pngtree\u2014white three-dimensional arrow_5616937_35": -556298222
+      "\u2014Pngtree\u2014white three-dimensional arrow_5616937_36": -448609166
+      "\u2014Pngtree\u2014white three-dimensional arrow_5616937_37": -195707143
+      "\u2014Pngtree\u2014white three-dimensional arrow_5616937_38": 1108433097
+      "\u2014Pngtree\u2014white three-dimensional arrow_5616937_39": 591501980
+      "\u2014Pngtree\u2014white three-dimensional arrow_5616937_4": -634332139
+      "\u2014Pngtree\u2014white three-dimensional arrow_5616937_40": -1898817047
+      "\u2014Pngtree\u2014white three-dimensional arrow_5616937_41": -674981740
+      "\u2014Pngtree\u2014white three-dimensional arrow_5616937_42": 886279943
+      "\u2014Pngtree\u2014white three-dimensional arrow_5616937_43": 169367441
+      "\u2014Pngtree\u2014white three-dimensional arrow_5616937_44": -944237947
+      "\u2014Pngtree\u2014white three-dimensional arrow_5616937_45": 1228764647
+      "\u2014Pngtree\u2014white three-dimensional arrow_5616937_46": -2042683036
+      "\u2014Pngtree\u2014white three-dimensional arrow_5616937_47": 1024299752
+      "\u2014Pngtree\u2014white three-dimensional arrow_5616937_48": 1145412501
+      "\u2014Pngtree\u2014white three-dimensional arrow_5616937_49": 636358131
+      "\u2014Pngtree\u2014white three-dimensional arrow_5616937_5": -2008743180
+      "\u2014Pngtree\u2014white three-dimensional arrow_5616937_50": -1908419052
+      "\u2014Pngtree\u2014white three-dimensional arrow_5616937_51": 361044185
+      "\u2014Pngtree\u2014white three-dimensional arrow_5616937_52": 9552679
+      "\u2014Pngtree\u2014white three-dimensional arrow_5616937_53": -1959417779
+      "\u2014Pngtree\u2014white three-dimensional arrow_5616937_54": 752915206
+      "\u2014Pngtree\u2014white three-dimensional arrow_5616937_55": -135747758
+      "\u2014Pngtree\u2014white three-dimensional arrow_5616937_56": 1500171782
+      "\u2014Pngtree\u2014white three-dimensional arrow_5616937_57": 231596406
+      "\u2014Pngtree\u2014white three-dimensional arrow_5616937_58": -1316953383
+      "\u2014Pngtree\u2014white three-dimensional arrow_5616937_6": -1460334248
+      "\u2014Pngtree\u2014white three-dimensional arrow_5616937_7": -454314168
+      "\u2014Pngtree\u2014white three-dimensional arrow_5616937_8": 467436130
+      "\u2014Pngtree\u2014white three-dimensional arrow_5616937_9": 396571250
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
