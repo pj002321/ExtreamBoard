@@ -7,14 +7,14 @@ using UnityEngine.SceneManagement;
 using Cinemachine;
 using System.IO;
 using TMPro;
-
+using Timer;
 namespace Database
 {
     public class DataManager : MonoBehaviour
     {
         private AllData datas;
         public static DataManager instance;
-
+        private TimeUI timer;
         [SerializeField] TextAsset data;
         [SerializeField] GameObject playerPrefab;
         [SerializeField] TextMeshProUGUI stageText;
@@ -38,8 +38,7 @@ namespace Database
             }
             path = Application.persistentDataPath + '/';
             datas = JsonUtility.FromJson<AllData>(data.text);
-
-            Debug.Log("Current Scene Index: " + SceneManager.GetActiveScene().buildIndex);
+            LoadData();
             UpdatePlayerStartPosition();
         }
 
@@ -63,14 +62,18 @@ namespace Database
                 if (stage.stageID == currentSceneIndex)
                 {
                     currentStage = stage;
+                   
                     break;
                 }
             }
+
+            Debug.Log(datas.stage[0].CurrenStage);
 
             if (currentStage != null)
             {
                 GameObject playerInstance = Instantiate(playerPrefab);
                 Vector2 startPosition = new Vector2(currentStage.x, currentStage.y);
+                Debug.Log(startPosition);
                 playerInstance.transform.position = new Vector3(startPosition.x, startPosition.y, 0);
                 cinemachineCam = FindObjectOfType<CinemachineVirtualCamera>();
                 if (cinemachineCam != null)
@@ -98,6 +101,7 @@ namespace Database
 
         public void LoadData()
         {
+            stageText.text = "Stage " + datas.stage[0].CurrenStage;
             string data = File.ReadAllText(path + filename);
             datas = JsonUtility.FromJson<AllData>(data);
         }
