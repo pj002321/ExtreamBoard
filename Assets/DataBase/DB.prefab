@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8348069641767054194
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1554898746116036981}
+  - component: {fileID: 9142699792567858512}
+  m_Layer: 0
+  m_Name: DB
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1554898746116036981
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8348069641767054194}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -423.65622, y: 18.045216, z: 25.344383}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9142699792567858512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8348069641767054194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee6494d54428cf042b7f960e635b8d08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  associatedSheet: 1IszLCglWtg5SZp7QOguPS5WbcfZxyQJWk9XkpoIJ0dY
+  associatedWorksheet: stage
+  START_ROW_LENGTH: 2
+  END_ROW_LENGTH: 5
+  DataList:
+  - id: 0
+    name: Opening
+    x: 0
+    y: 0
+    _curstage: 1
+  - id: 1
+    name: Stage 1
+    x: -199
+    y: 61
+    _curstage: 1
+  - id: 2
+    name: Stage 2
+    x: -199
+    y: 61
+    _curstage: 2
+  - id: 3
+    name: Stage 3
+    x: -551
+    y: 61
+    _curstage: 3

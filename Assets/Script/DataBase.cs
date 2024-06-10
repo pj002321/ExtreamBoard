@@ -4,6 +4,7 @@ using UnityEngine;
 using GoogleSheetsToUnity;
 using System;
 using UnityEngine.Events;
+
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -36,7 +37,8 @@ public struct StageData
 [CreateAssetMenu(fileName = "Reader", menuName = "Scriptable Object/DataReader", order = int.MaxValue)]
 public class DataBase : DataRenderBase
 {
-    [Header("스프레드시트에서 읽혀져 직렬화 된 오브젝트")][SerializeField] public List<StageData> DataList = new List<StageData>();
+    [Header("Object read from spreadsheet and serialized")][SerializeField] public List<StageData> DataList = new List<StageData>();
+
     internal void UpdateStats(List<GSTU_Cell> list, int itemID)
     {
         string id = null;
@@ -49,7 +51,6 @@ public class DataBase : DataRenderBase
         {
             switch (list[i].columnId)
             {
-
                 case "stageID":
                     {
                         id = list[i].value;
@@ -60,7 +61,6 @@ public class DataBase : DataRenderBase
                         name = list[i].value;
                         break;
                     }
-
                 case "x":
                     {
                         x = list[i].value;
@@ -84,20 +84,20 @@ public class DataBase : DataRenderBase
 
     public void ReturnCurrentScene(int curstage)
     {
-        // 데이터베이스의 DataList에 접근하여 값을 설정
         if (DataList.Count > 0)
         {
             StageData stageData = DataList[0];
             stageData.curstage = curstage;
             DataList[0] = stageData;
         }
-        
     }
+
     public int GetCurstage()
     {
         return DataList[0].curstage;
     }
 }
+
 #if UNITY_EDITOR
 [CustomEditor(typeof(DataBase))]
 public class StageDataReaderEditor : Editor
@@ -113,9 +113,9 @@ public class StageDataReaderEditor : Editor
     {
         base.OnInspectorGUI();
 
-        GUILayout.Label("\n\n스프레드 시트 읽어오기");
+        GUILayout.Label("\n\nRead Spreadsheet");
 
-        if (GUILayout.Button("데이터 읽기(API 호출)"))
+        if (GUILayout.Button("Data Load (Call API)"))
         {
             UpdateStats(UpdateMethodOne);
             data.DataList.Clear();
@@ -136,7 +136,5 @@ public class StageDataReaderEditor : Editor
 
         EditorUtility.SetDirty(target);
     }
-
-
 }
 #endif

@@ -81,17 +81,22 @@ namespace Database
         {
            
             data.ReturnCurrentScene(currentSceneIndex);
-            stageText.text = "Stage " + data.DataList[data.GetCurstage()].curstage;
+            stageText.text = "Stage " + data.GetCurstage();
+#if UNITY_EDITOR
+            UnityEditor.EditorUtility.SetDirty(data);
+            UnityEditor.AssetDatabase.SaveAssets();
+#endif
         }
 
         public void LoadData()
         {
-            stageText.text = "Stage " + data.DataList[data.GetCurstage()].curstage;
+            Debug.Log(data.GetCurstage());
+            stageText.text = "Stage " + data.GetCurstage();
         }
 
         public void LoadScene()
         {
-            SceneManager.LoadScene(data.DataList[data.GetCurstage()].curstage);
+            SceneManager.LoadScene(data.GetCurstage());
         }
 
 
