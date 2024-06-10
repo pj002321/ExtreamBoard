@@ -53,7 +53,7 @@ MonoBehaviour:
     name: Opening
     x: 0
     y: 0
-    _curstage: 3
+    _curstage: 1
   - id: 1
     name: Stage 1
     x: -199

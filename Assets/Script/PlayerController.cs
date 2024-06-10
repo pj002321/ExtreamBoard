@@ -17,11 +17,11 @@ namespace Player
 
         bool canMove = true;
 
-       
+
         // Start is called before the first frame update
         void Start()
         {
-           
+
             rb = GetComponent<Rigidbody2D>();
             surfaceEffector2D = FindObjectOfType<SurfaceEffector2D>();
         }
@@ -31,17 +31,29 @@ namespace Player
         {
             if (canMove)
             {
-             
+                if (Input.GetKey(KeyCode.LeftArrow))
+                {
+                    rb.AddTorque(torqueAmount);
+                }
+                else if (Input.GetKey(KeyCode.RightArrow))
+                {
+                    rb.AddTorque(-torqueAmount);
+                }
+                if (Input.GetKey(KeyCode.UpArrow))
+                {
+                    RespondToBoost(true);
+                }
             }
             else
             {
+                DisableControls();
             }
         }
 
         public void RespondToBoost(bool state)
         {
-            if (state) 
-            { 
+            if (state)
+            {
                 surfaceEffector2D.speed = boostSpeed;
             }
             else
@@ -52,7 +64,7 @@ namespace Player
 
         public void RotatePlayer(float reverse)
         {
-             rb.AddTorque(reverse*torqueAmount);
+            rb.AddTorque(reverse * torqueAmount);
         }
 
         public void DisableControls()

@@ -82,18 +82,17 @@ public class DataBase : DataRenderBase
         DataList.Add(new StageData(id, name, x, y, curstage));
     }
 
+   
+
     public void ReturnCurrentScene(int curstage)
     {
-
-        StageData stageData = DataList[0];
-        stageData.curstage = curstage;
-        DataList[0] = stageData;
-
+        PlayerPrefs.SetInt("CurStage", curstage);
+        PlayerPrefs.Save();
     }
 
     public int GetCurstage()
     {
-        return DataList[0].curstage;
+        return PlayerPrefs.GetInt("CurStage", 1); // 기본값은 1로 설정
     }
 }
 
