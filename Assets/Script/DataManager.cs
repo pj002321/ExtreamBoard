@@ -15,7 +15,7 @@ namespace Database
         public DataBase data;
 
         [SerializeField] GameObject playerPrefab;
-        [SerializeField] TextMeshProUGUI stageText;
+        
 
         private CinemachineVirtualCamera cinemachineCam;
         int currentSceneIndex;
@@ -80,18 +80,11 @@ namespace Database
         public void SaveData()
         {
            
-            data.ReturnCurrentScene(currentSceneIndex);
-            stageText.text = "Stage " + data.GetCurstage();
+            data.ReturnCurrentScene(SceneManager.GetActiveScene().buildIndex);
 #if UNITY_EDITOR
             UnityEditor.EditorUtility.SetDirty(data);
             UnityEditor.AssetDatabase.SaveAssets();
 #endif
-        }
-
-        public void LoadData()
-        {
-            Debug.Log(data.GetCurstage());
-            stageText.text = "Stage " + data.GetCurstage();
         }
 
         public void LoadScene()

@@ -12,7 +12,7 @@ namespace Timer
         [SerializeField] TextMeshProUGUI timerText;
         [SerializeField] TextMeshProUGUI gameoverText;
         public static TimeUI instance;
-        public static float elapsedTime = 20f; // 타이머를 20초로 초기화
+        public static float elapsedTime = 25f; // 타이머를 20초로 초기화
         int minutes;
         int seconds;
 
@@ -23,7 +23,7 @@ namespace Timer
 
         public void resetTime()
         {
-            elapsedTime = 20f; 
+            elapsedTime =25f; 
         }
 
         private void Update()

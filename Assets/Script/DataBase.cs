@@ -84,12 +84,11 @@ public class DataBase : DataRenderBase
 
     public void ReturnCurrentScene(int curstage)
     {
-        if (DataList.Count > 0)
-        {
-            StageData stageData = DataList[0];
-            stageData.curstage = curstage;
-            DataList[0] = stageData;
-        }
+
+        StageData stageData = DataList[0];
+        stageData.curstage = curstage;
+        DataList[0] = stageData;
+
     }
 
     public int GetCurstage()
