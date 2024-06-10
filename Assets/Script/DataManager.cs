@@ -1,29 +1,25 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using GoogleSheetsToUnity;
+using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 using Cinemachine;
-using System.IO;
 using TMPro;
-using Timer;
+
 namespace Database
 {
     public class DataManager : MonoBehaviour
     {
-        private AllData datas;
         public static DataManager instance;
-        private TimeUI timer;
-        [SerializeField] TextAsset data;
+        public DataBase data;
+
         [SerializeField] GameObject playerPrefab;
         [SerializeField] TextMeshProUGUI stageText;
 
         private CinemachineVirtualCamera cinemachineCam;
-        string path;
-        string filename = "Save";
         int currentSceneIndex;
-        
+
         public void Awake()
         {
             if (instance == null)
@@ -36,9 +32,7 @@ namespace Database
                 Destroy(gameObject);
                 return;
             }
-            path = Application.persistentDataPath + '/';
-            datas = JsonUtility.FromJson<AllData>(data.text);
-            LoadData();
+
             UpdatePlayerStartPosition();
         }
 
@@ -51,81 +45,55 @@ namespace Database
         {
             UpdatePlayerStartPosition();
         }
-        
+
         void UpdatePlayerStartPosition()
         {
             currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
-            StageData currentStage = null;
-            foreach (var stage in datas.stage)
+            StageData currentStage = new StageData();
+            foreach (var stage in data.DataList)
             {
-                if (stage.stageID == currentSceneIndex)
+                if (stage.id == currentSceneIndex)
                 {
                     currentStage = stage;
-                   
                     break;
                 }
             }
 
-            Debug.Log(datas.stage[0].CurrenStage);
-
-            if (currentStage != null)
+            GameObject playerInstance = Instantiate(playerPrefab);
+            Vector2 startPosition = new Vector2(currentStage.x, currentStage.y);
+            playerInstance.transform.position = new Vector3(startPosition.x, startPosition.y, 0);
+            cinemachineCam = FindObjectOfType<CinemachineVirtualCamera>();
+            if (cinemachineCam != null)
             {
-                GameObject playerInstance = Instantiate(playerPrefab);
-                Vector2 startPosition = new Vector2(currentStage.x, currentStage.y);
-                Debug.Log(startPosition);
-                playerInstance.transform.position = new Vector3(startPosition.x, startPosition.y, 0);
-                cinemachineCam = FindObjectOfType<CinemachineVirtualCamera>();
-                if (cinemachineCam != null)
-                {
-                    cinemachineCam.Follow = playerInstance.transform;
-                }
-                else
-                {
-                    Debug.LogError("CinemachineVirtualCamera not found in the scene.");
-                }
+                cinemachineCam.Follow = playerInstance.transform;
             }
             else
             {
-                Debug.LogError("Stage data not found for stage ID: " + currentSceneIndex);
+                Debug.LogError("CinemachineVirtualCamera not found in the scene.");
             }
+
         }
-       
+
+
+     
         public void SaveData()
         {
-            datas.stage[0].CurrenStage = currentSceneIndex;
-            stageText.text = "Stage " + datas.stage[0].CurrenStage;
-            string data = JsonUtility.ToJson(datas);
-            File.WriteAllText(path + filename, data);
+           
+            data.ReturnCurrentScene(currentSceneIndex);
+            stageText.text = "Stage " + data.DataList[data.GetCurstage()].curstage;
         }
 
         public void LoadData()
         {
-            stageText.text = "Stage " + datas.stage[0].CurrenStage;
-            string data = File.ReadAllText(path + filename);
-            datas = JsonUtility.FromJson<AllData>(data);
+            stageText.text = "Stage " + data.DataList[data.GetCurstage()].curstage;
         }
 
         public void LoadScene()
         {
-            SceneManager.LoadScene(datas.stage[0].CurrenStage);
+            SceneManager.LoadScene(data.DataList[data.GetCurstage()].curstage);
         }
-    }
 
-    [Serializable]
-    public class AllData
-    {
-        public StageData[] stage;
-    }
 
-    [Serializable]
-    public class StageData
-    {
-        public int stageID;
-        public string stageName;
-        public int x;
-        public int y;
-        public int CurrenStage;
     }
-
 }

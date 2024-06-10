@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ef767ea1b1ac9b4a94af74bae98bd1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 4900000, guid: 57d9d28344b2f1b4abb61cdd5372f82e, type: 3}
+  data: {fileID: 187719689}
   playerPrefab: {fileID: 7748540767595933760, guid: 1a126960ea792924dbd2223ab066b8da, type: 3}
   stageText: {fileID: 8717905688090761425, guid: 2aa5691d2b500ae478b191960be30712, type: 3}
 --- !u!4 &18629142
@@ -167,7 +167,8 @@ Transform:
   m_LocalPosition: {x: 4.7691827, y: 2.7317567, z: -10.012921}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 187719690}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &77414285
@@ -390,6 +391,75 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 142408602}
   m_CullTransparentMesh: 1
+--- !u!1 &187719688
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 187719690}
+  - component: {fileID: 187719689}
+  m_Layer: 0
+  m_Name: DB
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &187719689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187719688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee6494d54428cf042b7f960e635b8d08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  associatedSheet: 1IszLCglWtg5SZp7QOguPS5WbcfZxyQJWk9XkpoIJ0dY
+  associatedWorksheet: stage
+  START_ROW_LENGTH: 2
+  END_ROW_LENGTH: 5
+  DataList:
+  - id: 0
+    name: Opening
+    x: 0
+    y: 0
+    _curstage: 0
+  - id: 1
+    name: Stage 1
+    x: -199
+    y: 61
+    _curstage: 1
+  - id: 2
+    name: Stage 2
+    x: -199
+    y: 61
+    _curstage: 2
+  - id: 3
+    name: Stage 3
+    x: -551
+    y: 61
+    _curstage: 3
+--- !u!4 &187719690
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187719688}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -423.65622, y: 18.045216, z: 25.344383}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 18629142}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &223738399
 GameObject:
   m_ObjectHideFlags: 0
@@ -1507,6 +1577,7 @@ GameObject:
   - component: {fileID: 1516842173}
   - component: {fileID: 1516842172}
   - component: {fileID: 1516842176}
+  - component: {fileID: 1516842177}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1618,6 +1689,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadinfoWindow: {fileID: 77414285}
+--- !u!114 &1516842177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1516842171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee6494d54428cf042b7f960e635b8d08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  associatedSheet: 1IszLCglWtg5SZp7QOguPS5WbcfZxyQJWk9XkpoIJ0dY
+  associatedWorksheet: stage
+  START_ROW_LENGTH: 2
+  END_ROW_LENGTH: 5
+  DataList:
+  - id: 0
+    name: Opening
+    x: 0
+    y: 0
+    _curstage: 0
+  - id: 1
+    name: Stage 1
+    x: -199
+    y: 61
+    _curstage: 0
+  - id: 2
+    name: Stage 2
+    x: -199
+    y: 61
+    _curstage: 0
+  - id: 3
+    name: Stage 3
+    x: -551
+    y: 61
+    _curstage: 0
 --- !u!1 &1716779555
 GameObject:
   m_ObjectHideFlags: 0
