@@ -9,6 +9,7 @@ using UnityEngine.Events;
 using UnityEditor;
 #endif
 
+[Serializable]
 public struct StageData
 {
     public int id;
