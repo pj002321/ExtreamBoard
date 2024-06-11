@@ -8,10 +8,13 @@ public class ControllUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     private PlayerController playerController;
     private Coroutine holdCoroutine;
+
     void Start()
     {
         playerController = FindObjectOfType<PlayerController>();
     }
+
+    #region EventMethods
     private IEnumerator HoldButtonCoroutine()
     {
         while (true)
@@ -34,19 +37,17 @@ public class ControllUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-
         Debug.Log("OnPointerDown");
         holdCoroutine = StartCoroutine(HoldButtonCoroutine());
     }
-
-    // 버튼을 뗐을 때 호출되는 함수
+ 
     public void OnPointerUp(PointerEventData eventData)
     {
-        // 코루틴 종료
         playerController.RespondToBoost(false);
         if (holdCoroutine != null)
         {
             StopCoroutine(holdCoroutine);
         }
     }
+    #endregion EventMethods
 }

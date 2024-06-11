@@ -11,12 +11,12 @@ namespace Database
 {
     public class DataManager : MonoBehaviour
     {
+
         public static DataManager instance;
         public DataBase data;
 
         [SerializeField] GameObject playerPrefab;
         
-
         private CinemachineVirtualCamera cinemachineCam;
         int currentSceneIndex;
 
@@ -45,7 +45,7 @@ namespace Database
         {
             UpdatePlayerStartPosition();
         }
-
+        #region DataMethods
         void UpdatePlayerStartPosition()
         {
             currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
@@ -68,13 +68,7 @@ namespace Database
             {
                 cinemachineCam.Follow = playerInstance.transform;
             }
-            else
-            {
-                Debug.LogError("CinemachineVirtualCamera not found in the scene.");
-            }
-
         }
-
 
      
         public void SaveData()
@@ -91,6 +85,7 @@ namespace Database
         {
             SceneManager.LoadScene(data.GetCurstage());
         }
+        #endregion DataMethods
 
 
     }

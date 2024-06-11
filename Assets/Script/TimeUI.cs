@@ -12,20 +12,17 @@ namespace Timer
         [SerializeField] TextMeshProUGUI timerText;
         [SerializeField] TextMeshProUGUI gameoverText;
         public static TimeUI instance;
-        public static float elapsedTime = 25f; // 타이머를 20초로 초기화
+        public static float elapsedTime = 25f;
         int minutes;
         int seconds;
 
+        #region UnityMethods
         private void Awake()
         {
             resetTime();
         }
 
-        public void resetTime()
-        {
-            elapsedTime =25f; 
-        }
-
+     
         private void Update()
         {
             if (elapsedTime <= 0)
@@ -45,6 +42,12 @@ namespace Timer
                 seconds = Mathf.FloorToInt(elapsedTime % 60);
                 timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
             }
+        }
+        #endregion UnityMethods
+
+        public void resetTime()
+        {
+            elapsedTime = 25f;
         }
 
         void LoadOpeningScene()

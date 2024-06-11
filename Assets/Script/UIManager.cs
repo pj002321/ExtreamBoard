@@ -41,7 +41,7 @@ public class UIManager : MonoBehaviour
             previousScreenHeight = Screen.height;
         }
     }
-
+    #region EventMethods
     public void OnNewGameStart()
     {
         isGamePaused = false;
@@ -88,4 +88,5 @@ public class UIManager : MonoBehaviour
             loadinfoWindowRect.sizeDelta = new Vector2(Screen.width / 2, Screen.height / 2);
         }
     }
+    #endregion EventMethods
 }

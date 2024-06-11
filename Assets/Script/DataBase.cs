@@ -9,7 +9,6 @@ using UnityEngine.Events;
 using UnityEditor;
 #endif
 
-[Serializable]
 public struct StageData
 {
     public int id;
@@ -22,7 +21,6 @@ public struct StageData
         get { return _curstage; }
         set { _curstage = value; }
     }
-
     public StageData(string id, string name, string x, string y, string curstage)
     {
         int.TryParse(id, out this.id);
@@ -33,6 +31,7 @@ public struct StageData
         Debug.Log(curstage + "CS");
     }
 }
+
 
 [CreateAssetMenu(fileName = "Reader", menuName = "Scriptable Object/DataReader", order = int.MaxValue)]
 public class DataBase : DataRenderBase
@@ -82,8 +81,6 @@ public class DataBase : DataRenderBase
         DataList.Add(new StageData(id, name, x, y, curstage));
     }
 
-   
-
     public void ReturnCurrentScene(int curstage)
     {
         PlayerPrefs.SetInt("CurStage", curstage);
@@ -92,9 +89,10 @@ public class DataBase : DataRenderBase
 
     public int GetCurstage()
     {
-        return PlayerPrefs.GetInt("CurStage", 1); // 기본값은 1로 설정
+        return PlayerPrefs.GetInt("CurStage", 1);
     }
 }
+
 
 #if UNITY_EDITOR
 [CustomEditor(typeof(DataBase))]

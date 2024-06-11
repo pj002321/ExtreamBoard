@@ -5,9 +5,9 @@ using UnityEngine;
 
 namespace Player
 {
-
     public class PlayerController : MonoBehaviour
     {
+        #region Variables
         [SerializeField] float torqueAmount = 1f;
         [SerializeField] float boostSpeed = 30f;
         [SerializeField] float baseSpeed = 20f;
@@ -16,9 +16,9 @@ namespace Player
         SurfaceEffector2D surfaceEffector2D;
 
         bool canMove = true;
+        #endregion Variables
 
-
-        // Start is called before the first frame update
+        #region UnityMethods
         void Start()
         {
 
@@ -26,18 +26,18 @@ namespace Player
             surfaceEffector2D = FindObjectOfType<SurfaceEffector2D>();
         }
 
-        // Update is called once per frame
+        
         void Update()
         {
             if (canMove)
             {
                 if (Input.GetKey(KeyCode.LeftArrow))
                 {
-                    rb.AddTorque(torqueAmount);
+                    RotatePlayer(1f);
                 }
                 else if (Input.GetKey(KeyCode.RightArrow))
                 {
-                    rb.AddTorque(-torqueAmount);
+                    RotatePlayer(-1f);
                 }
                 if (Input.GetKey(KeyCode.UpArrow))
                 {
@@ -49,7 +49,9 @@ namespace Player
                 DisableControls();
             }
         }
+        #endregion UnityMethods
 
+        #region PlayerMethods
         public void RespondToBoost(bool state)
         {
             if (state)
@@ -71,6 +73,7 @@ namespace Player
         {
             canMove = false;
         }
+        #endregion PlayerMethods
     }
 
 }
