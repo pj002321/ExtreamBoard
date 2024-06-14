@@ -11,15 +11,16 @@ namespace Database
 {
     public class DataManager : MonoBehaviour
     {
-
         public static DataManager instance;
         public DataBase data;
 
+        #region Variables
         [SerializeField] GameObject playerPrefab;
-        
         private CinemachineVirtualCamera cinemachineCam;
         int currentSceneIndex;
+        #endregion Variables
 
+        #region UnityMethods
         public void Awake()
         {
             if (instance == null)
@@ -40,12 +41,13 @@ namespace Database
         {
             SceneManager.sceneLoaded += OnSceneLoaded;
         }
+        #endregion UnityMethods
 
+        #region DataMethods
         void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
             UpdatePlayerStartPosition();
         }
-        #region DataMethods
         void UpdatePlayerStartPosition()
         {
             currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
@@ -70,10 +72,10 @@ namespace Database
             }
         }
 
-     
+
         public void SaveData()
         {
-           
+
             data.ReturnCurrentScene(SceneManager.GetActiveScene().buildIndex);
 #if UNITY_EDITOR
             UnityEditor.EditorUtility.SetDirty(data);
@@ -86,7 +88,6 @@ namespace Database
             SceneManager.LoadScene(data.GetCurstage());
         }
         #endregion DataMethods
-
 
     }
 }

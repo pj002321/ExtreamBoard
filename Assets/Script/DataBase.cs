@@ -4,6 +4,8 @@ using UnityEngine;
 using GoogleSheetsToUnity;
 using System;
 using UnityEngine.Events;
+using System.Security.Cryptography;
+
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -38,7 +40,7 @@ public struct StageData
 public class DataBase : DataRenderBase
 {
     [Header("Object read from spreadsheet and serialized")][SerializeField] public List<StageData> DataList = new List<StageData>();
-
+   
     internal void UpdateStats(List<GSTU_Cell> list, int itemID)
     {
         string id = null;
@@ -90,7 +92,7 @@ public class DataBase : DataRenderBase
 
     public int GetCurstage()
     {
-        return PlayerPrefs.GetInt("CurStage", 1);
+        return PlayerPrefs.GetInt("CurStage", 0);
     }
 }
 

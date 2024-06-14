@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour
     private bool isloadwindow = false;
     private DataManager db;
     public GameObject loadinfoWindow;
+    public GameObject authWindow;
     public GameObject pauseWindow;
     [SerializeField] TextMeshProUGUI stageText;
     private RectTransform loadinfoWindowRect;
@@ -33,7 +34,6 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
-   
         if (Screen.width != previousScreenWidth || Screen.height != previousScreenHeight)
         {
             UpdateUI();
@@ -54,7 +54,14 @@ public class UIManager : MonoBehaviour
         isloadwindow = !isloadwindow;
         loadinfoWindow.SetActive(isloadwindow);
     }
-
+    public void OnExitAuthWindow()
+    {
+        authWindow.SetActive(false);
+    }
+    public void OnEnterAuthWindow()
+    {
+        authWindow.SetActive(true);
+    }
     public void OnLoadStage()
     {
         db.LoadScene();
