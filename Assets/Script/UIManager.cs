@@ -45,12 +45,13 @@ public class UIManager : MonoBehaviour
     public void OnNewGameStart()
     {
         isGamePaused = false;
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 
     public void OnLoadInfoWindow()
     {
-        stageText.text = "Stage" + data.GetCurstage();
+        Debug.Log(StageObject.Instance.GetSavedStage());
+        stageText.text = "Stage" + (StageObject.Instance.GetSavedStage());
         isloadwindow = !isloadwindow;
         loadinfoWindow.SetActive(isloadwindow);
     }
@@ -64,7 +65,8 @@ public class UIManager : MonoBehaviour
     }
     public void OnLoadStage()
     {
-        db.LoadScene();
+        Debug.Log(StageObject.Instance.GetSavedStage() + 1);
+        SceneManager.LoadScene(StageObject.Instance.GetSavedStage()+1);
     }
 
     public void OnSave()
@@ -80,7 +82,7 @@ public class UIManager : MonoBehaviour
     }
     public void OnLoadLobby()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
     public void OnExit()
     {
