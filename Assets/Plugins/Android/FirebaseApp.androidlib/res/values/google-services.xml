@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:keep="@string/firebase_database_url,@string/gcm_defaultSenderId,@string/google_storage_bucket,@string/project_id,@string/google_api_key,@string/google_crash_reporting_api_key,@string/google_app_id">
+  <string name="firebase_database_url" translatable="false">https://extreamboard.page.link/RtQw</string>
+  <string name="gcm_defaultSenderId" translatable="false">896710933742</string>
+  <string name="google_storage_bucket" translatable="false">extreamboarddev.appspot.com</string>
+  <string name="project_id" translatable="false">extreamboarddev</string>
+  <string name="google_api_key" translatable="false">AIzaSyCtOq__NT8gSQrxpSBHNt3gFW7MFDNh5Dk</string>
+  <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCtOq__NT8gSQrxpSBHNt3gFW7MFDNh5Dk</string>
+  <string name="google_app_id" translatable="false">1:896710933742:android:4b80038e2b146f55db47ff</string>
+</resources>
