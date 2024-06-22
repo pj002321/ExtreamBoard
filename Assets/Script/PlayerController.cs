@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Player
 {
@@ -14,7 +15,7 @@ namespace Player
 
         private Rigidbody2D rb;
         SurfaceEffector2D surfaceEffector2D;
-
+        public AudioSource getCoinSound;
         bool canMove = true;
         #endregion Variables
 
@@ -24,25 +25,12 @@ namespace Player
 
             rb = GetComponent<Rigidbody2D>();
             surfaceEffector2D = FindObjectOfType<SurfaceEffector2D>();
+       
         }
-
-        
         void Update()
         {
             if (canMove)
             {
-                if (Input.GetKey(KeyCode.LeftArrow))
-                {
-                    RotatePlayer(1f);
-                }
-                else if (Input.GetKey(KeyCode.RightArrow))
-                {
-                    RotatePlayer(-1f);
-                }
-                if (Input.GetKey(KeyCode.UpArrow))
-                {
-                    RespondToBoost(true);
-                }
             }
             else
             {
@@ -73,6 +61,18 @@ namespace Player
         {
             canMove = false;
         }
+
+        int getCoinIdex = 0;
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.gameObject.tag == "Coin")
+            {
+                PlayerDataHandler.Instance.UpdateStageCoinData(SceneManager.GetActiveScene().buildIndex, getCoinIdex++);
+                GameUI.Instance.SetText(getCoinIdex);
+                getCoinSound.Play();
+            }
+
+        }  
         #endregion PlayerMethods
     }
 

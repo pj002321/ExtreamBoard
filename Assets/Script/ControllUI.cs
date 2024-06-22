@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using Player;
-public class ControllUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+public class ControllUI : MonoBehaviour
 {
     private PlayerController playerController;
     private Coroutine holdCoroutine;
@@ -15,39 +15,38 @@ public class ControllUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     }
 
     #region EventMethods
-    private IEnumerator HoldButtonCoroutine()
+    private IEnumerator HoldButtonCoroutine(int reverse)
     {
         while (true)
         {
-            if (gameObject.name == "LeftButton")
-            {
-                playerController.RotatePlayer(1);
-            }
-            else if (gameObject.name == "RightButton")
-            {
-                playerController.RotatePlayer(-1);
-            }
-            else if(gameObject.name == "UpButton")
-            {
-                playerController.RespondToBoost(true);
-            }
+            playerController.RotatePlayer(reverse);
             yield return null;
         }
     }
 
-    public void OnPointerDown(PointerEventData eventData)
+    public void OnPointerDown(int reverse)
     {
-        Debug.Log("OnPointerDown");
-        holdCoroutine = StartCoroutine(HoldButtonCoroutine());
+        holdCoroutine = StartCoroutine(HoldButtonCoroutine(reverse));
     }
- 
-    public void OnPointerUp(PointerEventData eventData)
+    public void OnPointerUp()
     {
         playerController.RespondToBoost(false);
         if (holdCoroutine != null)
         {
             StopCoroutine(holdCoroutine);
         }
+    }
+    public void OnLeftButtonDown()
+    {
+        OnPointerDown(-1);
+    }
+    public void OnUpButtonDown()
+    {
+        playerController.RespondToBoost(true);
+    }
+    public void OnRightButtonDown()
+    {
+        OnPointerDown(1);
     }
     #endregion EventMethods
 }

@@ -172,6 +172,83 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &6959315882322510073
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 221806854107884030}
+  - component: {fileID: 6019123541755761698}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &221806854107884030
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6959315882322510073}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0.062044427, w: 0.99807346}
+  m_LocalPosition: {x: 0.035, y: -0.318, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 122580002365288036}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -7.114}
+--- !u!61 &6019123541755761698
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6959315882322510073}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.02}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.49, y: 0.37}
+  m_EdgeRadius: 0
 --- !u!1 &7748540767595933760
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,9 +262,9 @@ GameObject:
   - component: {fileID: 2833828927117503845}
   - component: {fileID: 4019482145813549287}
   - component: {fileID: 1374764629480298919}
+  - component: {fileID: 7786016313292320685}
   - component: {fileID: 8845953706621757776}
   - component: {fileID: 878868985402987119}
-  - component: {fileID: 7786016313292320685}
   m_Layer: 0
   m_Name: Barry
   m_TagString: Player
@@ -212,6 +289,7 @@ Transform:
   - {fileID: 1964810561623733060}
   - {fileID: 2196049997886590058}
   - {fileID: 5364502130119450628}
+  - {fileID: 221806854107884030}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -10.145}
 --- !u!50 &8100731064174256006
@@ -273,8 +351,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.42}
-  m_Size: {x: 0.69, y: 0.14}
+  m_Offset: {x: 0, y: -0.48}
+  m_Size: {x: 0.69, y: 0.11}
   m_Direction: 1
 --- !u!58 &4019482145813549287
 CircleCollider2D:
@@ -308,9 +386,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.02, y: -0.22}
+  m_Offset: {x: 0.09, y: -0.19}
   serializedVersion: 2
-  m_Radius: 0.15
+  m_Radius: 0.12
 --- !u!114 &1374764629480298919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -326,34 +404,7 @@ MonoBehaviour:
   torqueAmount: 800
   boostSpeed: 100
   baseSpeed: 50
---- !u!114 &8845953706621757776
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7748540767595933760}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c504381a4ae83f4686e3c2df4fffaa7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  loadDelay: 0.5
-  crashnEffect: {fileID: 8794155349399478081}
-  crashSFX: {fileID: 8300000, guid: 96f362ce776feb24bb188549fe422ef5, type: 3}
---- !u!114 &878868985402987119
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7748540767595933760}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f7093892f5759c4f845bc68819aa501, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dustEffect: {fileID: 4004176383022014983}
+  getCoinSound: {fileID: 7786016313292320685}
 --- !u!82 &7786016313292320685
 AudioSource:
   m_ObjectHideFlags: 0
@@ -364,7 +415,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 0081e76df45a4274a91ba6b35646c43d, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -450,6 +501,34 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8845953706621757776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7748540767595933760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c504381a4ae83f4686e3c2df4fffaa7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadDelay: 0.5
+  crashnEffect: {fileID: 8794155349399478081}
+  crashSFX: {fileID: 8300000, guid: 96f362ce776feb24bb188549fe422ef5, type: 3}
+--- !u!114 &878868985402987119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7748540767595933760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f7093892f5759c4f845bc68819aa501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dustEffect: {fileID: 4004176383022014983}
 --- !u!1001 &371419635577017099
 PrefabInstance:
   m_ObjectHideFlags: 0

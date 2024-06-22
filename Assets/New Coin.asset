@@ -10,14 +10,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2dd5b391f78dd7542bfc66e1365948c7, type: 3}
-  m_Name: StageForCoin
+  m_Name: New Coin
   m_EditorClassIdentifier: 
-  stageData:
-    stageCoins:
-    - stage: 1
-      coins: 15
-    - stage: 2
-      coins: 10
-    - stage: 3
-      coins: 20
-    savedstage: 1

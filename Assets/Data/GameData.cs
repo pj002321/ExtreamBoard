@@ -19,6 +19,7 @@ public class StageCoinData
 [Serializable]
 public class PlayerData
 {
+    [JsonProperty]
     public List<StageCoinData> stageCoins = new List<StageCoinData>();
 
     public PlayerData()
@@ -29,20 +30,19 @@ public class PlayerData
         }
     }
     public int savedstage;
-
 }
 
 [CreateAssetMenu(fileName = "New Coin", menuName = "Player System/New Player CoinInfo")]
 [JsonObject(MemberSerialization.OptIn)]
-public class CoinObject : ScriptableObject
+public class GameData : ScriptableObject
 {
     [JsonProperty]
-    public PlayerData stageData = new PlayerData();
-    public Action<CoinObject> OnChangedCoin;
+    public PlayerData StageData{ get; set; } = new PlayerData(); 
+    public Action<GameData> OnChangedData;
 
     public int GetCoinsForStage(int stage)
     {
-        StageCoinData stageCoinData = stageData.stageCoins.Find(s => s.stage == stage);
+        StageCoinData stageCoinData = StageData.stageCoins.Find(s => s.stage == stage);
         if (stageCoinData != null)
         {
             return stageCoinData.coins;
@@ -56,20 +56,20 @@ public class CoinObject : ScriptableObject
 
     public void SetsavedStageIndex(int stage)
     {
-        stageData.savedstage = stage;
+        StageData.savedstage = stage;
        
     }
     public int GetsavedStageIndex()
     {
-        return stageData.savedstage;
+        return StageData.savedstage;
     }
     public void SetCoinsForStage(int stage, int coins)
     {
-        StageCoinData stageCoinData = stageData.stageCoins.Find(s => s.stage == stage);
+        StageCoinData stageCoinData = StageData.stageCoins.Find(s => s.stage == stage);
         if (stageCoinData != null)
         {
             stageCoinData.coins = coins;
-            OnChangedCoin?.Invoke(this);
+            OnChangedData?.Invoke(this);
         }
         else
         {
@@ -79,22 +79,18 @@ public class CoinObject : ScriptableObject
 
     public string ToJson()
     {
-        return JsonConvert.SerializeObject(stageData, Formatting.Indented);
+        return JsonConvert.SerializeObject(StageData, Formatting.Indented);
     }
     public string ToStageJson()
     {
-        return JsonConvert.SerializeObject(stageData.savedstage, Formatting.Indented);
+        return JsonConvert.SerializeObject(StageData.savedstage, Formatting.Indented);
     }
     public void FromJson(string jsonString)
     {
-        PlayerData newData = JsonConvert.DeserializeObject<PlayerData>(jsonString);
-        stageData = newData;
-        
-        OnChangedCoin?.Invoke(this);
+        StageData = JsonConvert.DeserializeObject<PlayerData>(jsonString);
     }
     public void FromStageJson(string jsonString)
     {
-        int newData = JsonConvert.DeserializeObject<int>(jsonString);
-        stageData.savedstage = newData;
+        StageData.savedstage = JsonConvert.DeserializeObject<int>(jsonString);
     }
 }

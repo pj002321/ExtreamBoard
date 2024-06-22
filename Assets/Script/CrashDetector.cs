@@ -10,9 +10,12 @@ public class CrashDetector : MonoBehaviour
     [SerializeField] float loadDelay = 1.5f;
     [SerializeField] ParticleSystem crashnEffect;
     [SerializeField] AudioClip crashSFX;
-
+    private GameUI gameUI = GameUI.Instance;
     bool hasCrashed = false;
-    
+    private void Start()
+    {
+        
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Ground" && !hasCrashed)
@@ -27,6 +30,8 @@ public class CrashDetector : MonoBehaviour
 
     void ReloadScene()
     {
+        if (gameUI == null) Debug.Log("gameUI NULL");
+
         SceneManager.LoadScene(1);
     }
 }

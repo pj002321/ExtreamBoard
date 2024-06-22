@@ -26,7 +26,18 @@ public class FireBaseAuthManager : MonoBehaviour
             return instance;
         }
     }
-
+    //private void Awake()
+    //{
+    //    if (instance == null)
+    //    {
+    //        instance = this;
+    //        DontDestroyOnLoad(gameObject); 
+    //    }
+    //    else
+    //    {
+    //        Destroy(gameObject);
+    //    }
+    //}
     public string UserId => user?.UserId ?? string.Empty;
     public string DisplayName => displayName;
     public string EmailAddress => emailAddress;

@@ -1827,7 +1827,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17bfb397858464c40b3f3d06ddc34a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCoin: {fileID: 11400000, guid: 9e46a27ec9f38344d8d658a5541e164f, type: 2}
+  gameData: {fileID: 11400000, guid: 70262a396411f014284397c1008f2493, type: 2}
 --- !u!114 &1122155589
 MonoBehaviour:
   m_ObjectHideFlags: 0

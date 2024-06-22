@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 public class StageObject : MonoBehaviour
 {
-    private static StageObject instance = null;
     private string userid;
-    private int savedStage;
+    private int savedStage=0;
+    private int coin=0;
+    private static StageObject instance;
     public static StageObject Instance
     {
         get
@@ -41,10 +43,20 @@ public class StageObject : MonoBehaviour
         savedStage = stage;
         return savedStage;
     }
-
-
+    public int GetCoinIndex()
+    {
+        Debug.Log("CurCoin" + coin);
+        return coin;
+    }
+    public int SetCoinIndex(int coinindex)
+    {
+        coin = coinindex;
+        return coin;
+    }
     public int GetSavedStage()
     {
         return savedStage;
     }
+
+
 }
