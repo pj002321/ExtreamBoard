@@ -34,7 +34,8 @@ public class UIManager : MonoBehaviour
             previousScreenWidth = Screen.width;
             previousScreenHeight = Screen.height;
         }
-
+        if(SceneManager.GetActiveScene().buildIndex==1)
+            stageText.text = "Stage" + StageObject.Instance.GetSavedStage();
     }
     #region EventMethods
     public void OnNewGameStart()

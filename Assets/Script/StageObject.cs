@@ -34,7 +34,6 @@ public class StageObject : MonoBehaviour
 
     public string GetUserInfo()
     {
-        Debug.Log(userid);
         return userid;
     }
 

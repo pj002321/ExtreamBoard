@@ -401,7 +401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4266a86a839715c4a8da86410f5d2a27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  torqueAmount: 800
+  torqueAmount: 1000
   boostSpeed: 100
   baseSpeed: 50
   getCoinSound: {fileID: 7786016313292320685}

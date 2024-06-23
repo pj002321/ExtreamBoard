@@ -67,7 +67,7 @@ namespace Player
         {
             if (collision.gameObject.tag == "Coin")
             {
-                PlayerDataHandler.Instance.UpdateStageCoinData(SceneManager.GetActiveScene().buildIndex, getCoinIdex++);
+                PlayerDataHandler.Instance.UpdateStageCoinData(SceneManager.GetActiveScene().buildIndex-1, getCoinIdex++);
                 GameUI.Instance.SetText(getCoinIdex);
                 getCoinSound.Play();
             }

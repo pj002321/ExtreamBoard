@@ -27,6 +27,7 @@ public class FireBaseAuthUIController : MonoBehaviour
         string email = emailInputField.text;
         string password = passwordInputField.text;
         FireBaseAuthManager.Instance.Create(email, password);
+        outputText.text = "성공적으로 계정이 생성되었습니다!";
     }
 
     public void SigedIn()

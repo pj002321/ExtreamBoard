@@ -1796,9 +1796,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadinfoWindow: {fileID: 0}
   authWindow: {fileID: 1493965361}
-  pauseWindow: {fileID: 9008060571081851993, guid: db815b29343d8d541821f89497ef072b, type: 3}
   stageText: {fileID: 0}
-  data: {fileID: 9142699792567858512, guid: c54f75364c701dd40ac5b6c8c0abc71d, type: 3}
 --- !u!114 &1122155587
 MonoBehaviour:
   m_ObjectHideFlags: 0

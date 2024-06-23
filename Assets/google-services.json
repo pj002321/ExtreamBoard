@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "896710933742",
+    "project_id": "extreamboarddev",
+    "firebase_url": "https://extreamboarddev-default-rtdb.firebaseio.com/",
+    "storage_bucket": "extreamboarddev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:896710933742:android:4b80038e2b146f55db47ff",
+        "android_client_info": {
+          "package_name": "com.extreamboard.firebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCtOq__NT8gSQrxpSBHNt3gFW7MFDNh5Dk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

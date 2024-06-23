@@ -4166,6 +4166,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7549374168336517383, guid: 7de41ca4eb974754699bf348cece9e42, type: 3}
+      propertyPath: spawnAreaSize.x
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 8271509295087082131, guid: 7de41ca4eb974754699bf348cece9e42, type: 3}
       propertyPath: m_Name
       value: GeneratorCoin
