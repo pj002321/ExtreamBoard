@@ -15,13 +15,7 @@ public class StageObject : MonoBehaviour
         {
             if (instance == null)
             {
-                instance = FindObjectOfType<StageObject>();
-                if (instance == null)
-                {
-                    GameObject obj = new GameObject("UserObject");
-                    instance = obj.AddComponent<StageObject>();
-                    DontDestroyOnLoad(obj);
-                }
+                instance = new StageObject();
             }
             return instance;
         }
