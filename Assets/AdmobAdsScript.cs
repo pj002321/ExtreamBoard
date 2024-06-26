@@ -11,37 +11,60 @@ public class AdmobAdsScript : MonoBehaviour
 {
     public TextMeshProUGUI textMeshProUGUI;
 
-    public string appId = "";
+    public string appId = "ca-app-pub-9194202079810745~9843813693";
 
+// Test ID
 #if UNITY_ANDROID
-    public string bannerID = "ca-app-pub-9194202079810745/2487922064";
-    public string interID = "ca-app-pub-9194202079810745/8081377134";
-    public string rewardID = "ca-app-pub-9194202079810745/3870669385";
-    public string nativeID = "ca-app-pub-9194202079810745/7889805444";
+    public string bannerID = "ca-app-pub-3940256099942544/9214589741";
+    public string interID = "ca-app-pub-3940256099942544/1033173712";
+    public string rewardID = "ca-app-pub-3940256099942544/5224354917";
+    public string nativeID = "ca-app-pub-3940256099942544/2247696110";
 
 #endif 
     BannerView bannerView;
     InterstitialAd interstitialAd;
     RewardedAd rewardedAd;
-
-    private void Start()
+    private static AdmobAdsScript instance;
+    public static AdmobAdsScript Instance
     {
-        
+        get
+        {
+            if (instance == null)
+            {
+                instance = new AdmobAdsScript();
+
+            }
+            return instance;
+        }
+    }
+    private void Awake()
+    {
+
+
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+            SceneManager.sceneLoaded += OnSceneLoaded;
+        }
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
         MobileAds.RaiseAdEventsOnUnityMainThread = true;
         MobileAds.Initialize(initStatus =>
         {
-            print("Ads Initialised !!");
+            LoadTopBannerAd();
+            LoadInterstitialAd();
         });
-
-        
     }
-   
+
     #region Banner
 
     public void LoadTopBannerAd()
-    {   
+    {
         //create a banner
-        CreateBannerView(AdSize.Banner,AdPosition.Top);
+        CreateBannerView(AdSize.Banner, AdPosition.Top);
 
         //listen to banner events
         ListenToBannerEvent();
@@ -49,19 +72,19 @@ public class AdmobAdsScript : MonoBehaviour
         // load the banner
         if (bannerView == null)
         {
-            CreateBannerView(AdSize.Banner,AdPosition.Top);
+            CreateBannerView(AdSize.Banner, AdPosition.Top);
         }
 
         var adRequest = new AdRequest();
         adRequest.Keywords.Add("unity-admob-sample");
-
+    
         print("Loading banner Ad !!");
         bannerView.LoadAd(adRequest); // show the Banner on the Screen
     }
     public void LoadBottomBannerAd()
     {
         //create a banner
-        CreateBannerView(AdSize.Leaderboard,AdPosition.Bottom);
+        CreateBannerView(AdSize.Leaderboard, AdPosition.Bottom);
 
         //listen to banner events
         ListenToBannerEvent();
@@ -69,7 +92,7 @@ public class AdmobAdsScript : MonoBehaviour
         // load the banner
         if (bannerView == null)
         {
-            CreateBannerView(AdSize.Leaderboard,AdPosition.Top);
+            CreateBannerView(AdSize.Leaderboard, AdPosition.Top);
         }
 
         var adRequest = new AdRequest();
@@ -78,7 +101,7 @@ public class AdmobAdsScript : MonoBehaviour
         print("Loading banner Ad !!");
         bannerView.LoadAd(adRequest); // show the Banner on the Screen
     }
-    void CreateBannerView(AdSize Banner,AdPosition position)
+    void CreateBannerView(AdSize Banner, AdPosition position)
     {
         if (bannerView != null)
         {
@@ -103,7 +126,7 @@ public class AdmobAdsScript : MonoBehaviour
         // Raised when the ad is estimated to have earned money.
         bannerView.OnAdPaid += (AdValue adValue) =>
         {
-            Debug.Log("Banner view paid {0} {1}."+ adValue.Value+adValue.CurrencyCode);
+            Debug.Log("Banner view paid {0} {1}." + adValue.Value + adValue.CurrencyCode);
         };
         // Raised when an impression is recorded for an ad.
         bannerView.OnAdImpressionRecorded += () =>
@@ -128,7 +151,7 @@ public class AdmobAdsScript : MonoBehaviour
     }
     public void DestroyBannerAd()
     {
-        if(bannerView != null)
+        if (bannerView != null)
         {
             print("Destroying banner Ad");
             bannerView.Destroy();
@@ -152,7 +175,7 @@ public class AdmobAdsScript : MonoBehaviour
 
         InterstitialAd.Load(interID, adRequest, (InterstitialAd ad, LoadAdError error) =>
         {
-            if(error!=null || ad == null)
+            if (error != null || ad == null)
             {
                 print("Interstitial ad failed to load" + error);
                 return;
@@ -166,11 +189,11 @@ public class AdmobAdsScript : MonoBehaviour
 
     public void ShowInterstitialAd()
     {
-        if (interstitialAd != null && interstitialAd.CanShowAd()) 
+        if (interstitialAd != null && interstitialAd.CanShowAd())
         {
             interstitialAd.Show();
         }
-        else 
+        else
         {
             print("Interstitial ad not ready !!");
         }
@@ -181,8 +204,8 @@ public class AdmobAdsScript : MonoBehaviour
         // Raised when the ad is estimated to have earned money.
         interstitialAd.OnAdPaid += (AdValue adValue) =>
         {
-            Debug.Log("Interstitial ad paid {0} {1}."+
-                adValue.Value+
+            Debug.Log("Interstitial ad paid {0} {1}." +
+                adValue.Value +
                 adValue.CurrencyCode);
         };
         // Raised when an impression is recorded for an ad.
@@ -221,13 +244,13 @@ public class AdmobAdsScript : MonoBehaviour
         if (rewardedAd != null)
         {
             rewardedAd.Destroy();
-           rewardedAd = null;
+            rewardedAd = null;
         }
 
         var adRequest = new AdRequest();
         adRequest.Keywords.Add("unity-admob-sample");
 
-        RewardedAd.Load(rewardID, adRequest, (RewardedAd ad, LoadAdError error) => 
+        RewardedAd.Load(rewardID, adRequest, (RewardedAd ad, LoadAdError error) =>
         {
             if (error != null || ad == null)
             {
@@ -243,7 +266,7 @@ public class AdmobAdsScript : MonoBehaviour
 
     public void ShowRewardedAd()
     {
-        if (rewardedAd!=null && rewardedAd.CanShowAd())
+        if (rewardedAd != null && rewardedAd.CanShowAd())
         {
             rewardedAd.Show((Reward reward) =>
             {
@@ -261,8 +284,8 @@ public class AdmobAdsScript : MonoBehaviour
         // Raised when the ad is estimated to have earned money.
         ad.OnAdPaid += (AdValue adValue) =>
         {
-            Debug.Log("Rewarded ad paid {0} {1}."+
-                adValue.Value+
+            Debug.Log("Rewarded ad paid {0} {1}." +
+                adValue.Value +
                 adValue.CurrencyCode);
         };
         // Raised when an impression is recorded for an ad.
@@ -296,7 +319,7 @@ public class AdmobAdsScript : MonoBehaviour
 
     #region Native
 
-   // public Image img;
+    // public Image img;
     private NativeAd nativeAd;
     public void RequestNativeAd()
     {
@@ -321,9 +344,48 @@ public class AdmobAdsScript : MonoBehaviour
         //img.sprite = sprite;
     }
 
-    private void HandleNativeAdFailedToLoad(object sender, AdFailedToLoadEventArgs  e)
+    private void HandleNativeAdFailedToLoad(object sender, AdFailedToLoadEventArgs e)
     {
         print("Native ad failed loaded");
     }
     #endregion
+
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.buildIndex == 1)
+        {
+            EnterRewardAd();
+            ExitBannerAd();
+        }
+        else
+        {
+            EnterBannerAd(scene);
+        }
+    }
+    void EnterRewardAd()
+    {
+        LoadInterstitialAd();
+        ShowInterstitialAd();
+    }
+
+    void EnterBannerAd(Scene scene)
+    {
+        if (scene.buildIndex == 0)
+        {
+            LoadTopBannerAd();
+        }
+        else if (scene.buildIndex >= 2 && scene.buildIndex <= 4)
+        {
+            LoadBottomBannerAd();
+        }
+    }
+    void ExitBannerAd()
+    {
+        DestroyBannerAd();
+    }
+
 }
